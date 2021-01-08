@@ -32,10 +32,41 @@ namespace Supermarket
             }
 
             FileStream filestream = File.Create(nomeFicheiro);
-            BinaryFormatter binnaryFormatter = new BinaryFormatter();
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+
+            foreach (Funcionario funcionarioASerLido in listaDeFuncionarios)
+            {
+                binaryFormatter.Serialize(filestream, funcionarioASerLido);
+            }
+            binaryFormatter.Serialize(filestream, listaDeFuncionarios);
+
+            filestream.Close();
+
+        }
+
+        //===============|Leitura de Funcionário Ficheiro|===============
+        public void leituraFuncionario()
+        {
+            if (File.Exists(nomeFicheiro))
+            {
+                FileStream fileStream = File.OpenRead(nomeFicheiro);
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
 
 
+                while (fileStream.Position < fileStream.Length)
+                {
+                    Funcionario livroLido = binaryFormatter.Deserialize(fileStream) as Funcionario;
+                    listaDeFuncionarios.Add(livroLido);
+                }
 
+                fileStream.Close();
+            }
+            else
+            {
+                Console.WriteLine("__________________________________________________________");
+                Console.WriteLine("|O ficheiro não foi encontrado, por favor crie um ficheiro|");
+                Console.WriteLine("|_________________________________________________________|");
+            }
         }
     }
 }
