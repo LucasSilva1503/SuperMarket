@@ -16,6 +16,26 @@ namespace Supermarket
         }
 
         //===============|Guardar Funcionário em Ficheiro|===============
-        
+        public void saveFuncionario()
+        {
+            string localizacaoFicheiro = Directory.GetCurrentDirectory();
+            string nomeFicheiro = "funcionariosGuardados.txt";
+
+            //Validação da existencia do ficheiro
+            if (File.Exists(nomeFicheiro))
+            {
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine("|O ficheiro antigo foi apagado e substituido por um Ficheiro atualizado|");
+                Console.WriteLine("|______________________________________________________________________|");
+
+                File.Delete(nomeFicheiro);
+            }
+
+            FileStream filestream = File.Create(nomeFicheiro);
+            BinaryFormatter binnaryFormatter = new BinaryFormatter();
+
+
+
+        }
     }
 }
