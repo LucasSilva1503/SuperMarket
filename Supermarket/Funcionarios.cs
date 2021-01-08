@@ -47,7 +47,7 @@ namespace Supermarket
         //===============|Leitura de Funcionário Ficheiro|===============
         public void leituraFuncionario()
         {
-            string nomeFicheiro = "livrosGuardados.txt";
+            string nomeFicheiro = "funcionariosGuardados.txt";
 
             if (File.Exists(nomeFicheiro))
             {
@@ -57,8 +57,8 @@ namespace Supermarket
 
                 while (fileStream.Position < fileStream.Length)
                 {
-                    Funcionario livroLido = binaryFormatter.Deserialize(fileStream) as Funcionario;
-                    listaDeFuncionarios.Add(livroLido);
+                    Funcionario funcionarioLido = binaryFormatter.Deserialize(fileStream) as Funcionario;
+                    listaDeFuncionarios.Add(funcionarioLido);
                 }
 
                 fileStream.Close();
