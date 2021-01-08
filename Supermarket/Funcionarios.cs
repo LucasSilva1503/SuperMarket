@@ -47,6 +47,8 @@ namespace Supermarket
         //===============|Leitura de Funcionário Ficheiro|===============
         public void leituraFuncionario()
         {
+            string nomeFicheiro = "livrosGuardados.txt";
+
             if (File.Exists(nomeFicheiro))
             {
                 FileStream fileStream = File.OpenRead(nomeFicheiro);
