@@ -13,22 +13,24 @@ namespace Supermarket
         public int codFuncionário;
         public string dataNascimento;
 
-        //===============|Construtores|===============
+        #region Construtores
         public Funcionario(string nome, int codFuncionário, string dataNascimento)
         {
             this.nome = nome;
             this.codFuncionário = codFuncionário;
             this.dataNascimento = dataNascimento;
         }
+        #endregion
 
-        //===============|Método ToString|===============
+        #region Metodo ToString
+        
         public override string ToString()
         {
             return "| Funcionário: " + nome + " | |Número: " 
                 + codFuncionário + " | |Data Nascimento: " 
                 + dataNascimento + " |";
         }
+        #endregion
 
-       
     }
 }
