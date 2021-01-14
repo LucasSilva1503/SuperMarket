@@ -31,6 +31,7 @@ namespace Supermarket
                 File.Delete(nomeFicheiro);
             }
 
+            //Criacao do ficheiro
             FileStream filestream = File.Create(nomeFicheiro);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
