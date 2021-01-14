@@ -8,12 +8,15 @@ namespace Supermarket
         {
             Funcionarios staff = new Funcionarios();
 
-            Funcionario f1 = new Funcionario("Lucas Silva", 1503, "15-03-2000");
-            Funcionario f2 = new Funcionario("Juliana Cruz", 1504, "02-05-2002");
+            /*Funcionario f1 = new Funcionario("Lucas Silva", 1503, "15-03-2000");
+
 
             staff.listaDeFuncionarios.Add(f1);
 
-            //staff.saveFuncionario();
+            Console.WriteLine(staff.listaDeFuncionarios[0].codFuncionário);
+            Console.WriteLine(staff.listaDeFuncionarios[0].nome);
+
+            staff.saveFuncionario();*/
             staff.leituraFuncionario();
 
 

@@ -5,19 +5,26 @@ using System.Text;
 
 namespace Supermarket
 {
+    enum TipoFuncionarios
+    {
+        Gerente, 
+        Caixa,
+        Repositor
+    }
+
     [Serializable]
     class Funcionario
     {
         //===============|Declaração de Variáveis|===============
         public string nome;
-        public int codFuncionário;
+        public int codFuncionario;
         public string dataNascimento;
 
         #region Construtores
-        public Funcionario(string nome, int codFuncionário, string dataNascimento)
+        public Funcionario(string nome, int codFuncionario, string dataNascimento)
         {
             this.nome = nome;
-            this.codFuncionário = codFuncionário;
+            this.codFuncionario = codFuncionario;
             this.dataNascimento = dataNascimento;
         }
         #endregion
@@ -27,7 +34,7 @@ namespace Supermarket
         public override string ToString()
         {
             return "| Funcionário: " + nome + " | |Número: " 
-                + codFuncionário + " | |Data Nascimento: " 
+                + codFuncionario + " | |Data Nascimento: " 
                 + dataNascimento + " |";
         }
         #endregion
