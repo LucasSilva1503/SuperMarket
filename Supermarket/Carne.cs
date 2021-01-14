@@ -4,13 +4,19 @@ using System.Text;
 
 namespace Supermarket
 {
+    enum TipoDeCarne
+    {
+       Vaca,
+       Coelho,
+       Frango
+    }
     class Carne : Produto
     {
-
+        public TipoDeCarne tCarne;
 
         #region Construtor
 
-        public Carne(string marca, float preco, bool disponibilidade, int quantidade, bool vegan) : base(marca, preco, disponibilidade, quantidade, vegan)
+        public Carne(string marca, float preco, bool disponibilidade, int quantidade, bool vegan, TipoDeCarne tCarne) : base(marca, preco, disponibilidade, quantidade, vegan)
         {
             
             this.Marca = marca;
@@ -18,6 +24,7 @@ namespace Supermarket
             Disponibilidade = true;
             this.Quantidade = quantidade;
             Vegan = false;
+            this.tCarne = tCarne;
         }
 
         #endregion
