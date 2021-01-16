@@ -71,5 +71,20 @@ namespace Supermarket
                 Console.WriteLine("|_________________________________________________________|");
             }
         }
+
+        public TipoFuncionarios login(string nomeRecebido, string passRecebida)
+        {
+            foreach (Funcionario item in listaDeFuncionarios)
+            {
+                if(item.nome == nomeRecebido)
+                {
+                    if(item.codFuncionario == int.Parse(passRecebida))
+                    {
+                        return item.tFuncionarios;
+                    }
+                }
+            }
+            return TipoFuncionarios.Indefenido;
+        }
     }
 }

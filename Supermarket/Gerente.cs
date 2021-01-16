@@ -8,16 +8,16 @@ namespace Supermarket
     {
         //Class Filho de Funcionario
 
-        public Gerente(string nome, int codFuncionario, string dataNascimento) : base(nome, codFuncionario, dataNascimento)
+        
+        public Gerente(string nome, int codFuncionario, string dataNascimento, TipoFuncionarios tFuncionarios) : base(nome, codFuncionario, dataNascimento, tFuncionarios)
         {
-            string tipoFuncionario;
 
         }
 
         public override string ToString()
         {
             return "|Nome do Funcionario: " + nome + " |Codigo do Funcionario: " + codFuncionario + " |Data de Nascimento: " + dataNascimento + 
-                " |Tipo de Funcionario: " + tipoFuncionario;
+                " |Tipo de Funcionario: " + tFuncionarios;
         }
 
 

@@ -9,7 +9,8 @@ namespace Supermarket
     {
         Gerente, 
         Caixa,
-        Repositor
+        Repositor, 
+        Indefenido
     }
 
     [Serializable]
@@ -19,25 +20,26 @@ namespace Supermarket
         public string nome;
         public int codFuncionario;
         public string dataNascimento;
+        public TipoFuncionarios tFuncionarios;
 
         #region Construtores
-        public Funcionario(string nome, int codFuncionario, string dataNascimento)
+        public Funcionario(string nome, int codFuncionario, string dataNascimento, TipoFuncionarios tFuncionarios)
         {
             this.nome = nome;
             this.codFuncionario = codFuncionario;
             this.dataNascimento = dataNascimento;
+            this.tFuncionarios = tFuncionarios;
         }
         #endregion
 
-        #region Metodo ToString
-        
+        #region ToString
         public override string ToString()
         {
-            return "| Funcionário: " + nome + " | |Número: " 
-                + codFuncionario + " | |Data Nascimento: " 
-                + dataNascimento + " |";
+            return "|Nome do Funcionario: " + nome + " |Codigo do Funcionario: " + codFuncionario + " |Data de Nascimento: " + dataNascimento +
+                " |Tipo de Funcionario: " + tFuncionarios;
         }
         #endregion
+
 
     }
 }
