@@ -15,7 +15,9 @@ namespace Supermarket
             listaDeFuncionarios = new List<Funcionario>();
         }
 
-        //===============|Guardar Funcionário em Ficheiro|===============
+        //============================================================|Guardar Funcionario|================================================
+        
+        #region GuardarFuncionario
         public void saveFuncionario()
         {
             string localizacaoFicheiro = Directory.GetCurrentDirectory();
@@ -44,8 +46,11 @@ namespace Supermarket
             filestream.Close();
 
         }
+        #endregion
 
-        //===============|Leitura de Funcionário Ficheiro|===============
+        //============================================================|Ler Funcionario|====================================================
+
+        #region LerFuncionario
         public void leituraFuncionario()
         {
             string nomeFicheiro = "funcionariosGuardados.txt";
@@ -71,14 +76,18 @@ namespace Supermarket
                 Console.WriteLine("|_________________________________________________________|");
             }
         }
+        #endregion
 
+        //============================================================|Login|==============================================================
+        
+        #region Login
         public TipoFuncionarios login(string nomeRecebido, string passRecebida)
         {
             foreach (Funcionario item in listaDeFuncionarios)
             {
                 if(item.nome == nomeRecebido)
                 {
-                    if(item.codFuncionario == int.Parse(passRecebida))
+                    if (item.codFuncionario == int.Parse(passRecebida))
                     {
                         return item.tFuncionarios;
                     }
@@ -86,5 +95,58 @@ namespace Supermarket
             }
             return TipoFuncionarios.Indefenido;
         }
+        #endregion
+
+        //============================================================|Metodo ToString()|==================================================
+
+        #region ToString
+        public override string ToString()
+        {
+            string result = "";
+            foreach (Funcionario f in this.listaDeFuncionarios)
+            {
+                result += "|Nome do Funcionario: " + f.nome + " |Codigo do Funcionario: " + f.codFuncionario + " |Data de Nascimento: " + f.dataNascimento + " |Tipo de Funcionario: " + f.tFuncionarios + "\n";
+            }
+            return result;
+        }
+        #endregion
+
+        //============================================================|Apagar Funcionario|=================================================
+
+        #region ApagarFuncionario
+        public bool apagarFuncionario(string nome)
+        {
+            int indexARemover = -1;
+
+            for (int i = 0; i < this.listaDeFuncionarios.Count; i++)
+            {
+                if (this.listaDeFuncionarios[i].nome.ToLower().Equals(nome.ToLower())){
+
+                    indexARemover = i;
+                }
+            }
+
+            if(indexARemover != -1)
+            {
+                this.listaDeFuncionarios.RemoveAt(indexARemover);
+                saveFuncionario();
+                return true;
+            }
+
+            return false;
+
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
     }
 }

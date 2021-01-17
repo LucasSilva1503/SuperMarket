@@ -32,13 +32,7 @@ namespace Supermarket
         }
         #endregion
 
-        #region ToString
-        public override string ToString()
-        {
-            return "|Nome do Funcionario: " + nome + " |Codigo do Funcionario: " + codFuncionario + " |Data de Nascimento: " + dataNascimento +
-                " |Tipo de Funcionario: " + tFuncionarios;
-        }
-        #endregion
+        
 
 
     }
