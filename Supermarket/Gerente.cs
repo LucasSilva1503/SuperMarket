@@ -16,7 +16,7 @@ namespace Supermarket
 
         public override string ToString()
         {
-            return "|Nome do Funcionario: " + nome + " |Codigo do Funcionario: " + codFuncionario + " |Data de Nascimento: " + dataNascimento + 
+            return "|Nome do Funcionario: " + nome + " |Palavra-Passe: " + codFuncionario + " |Data de Nascimento: " + dataNascimento + 
                 " |Tipo de Funcionario: " + tFuncionarios;
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,7 +12,7 @@ namespace Supermarket
         Ananas,
         Malancia
     }
-    class Fruta : Produto
+    class Fruta :Produto
     {
         public TipoDeFruta tFruta;
 
@@ -29,4 +29,4 @@ namespace Supermarket
         }
         #endregion
     }
-}
+}*/

@@ -22,6 +22,7 @@ namespace Supermarket
         public string dataNascimento;
         public TipoFuncionarios tFuncionarios;
 
+        //===============|Construtores|===============
         #region Construtores
         public Funcionario(string nome, int codFuncionario, string dataNascimento, TipoFuncionarios tFuncionarios)
         {

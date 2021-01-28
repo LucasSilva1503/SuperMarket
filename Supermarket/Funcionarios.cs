@@ -105,7 +105,7 @@ namespace Supermarket
             string result = "";
             foreach (Funcionario f in this.listaDeFuncionarios)
             {
-                result += "|Nome do Funcionario: " + f.nome + " |Codigo do Funcionario: " + f.codFuncionario + " |Data de Nascimento: " + f.dataNascimento + " |Tipo de Funcionario: " + f.tFuncionarios + "\n";
+                result += "|Nome do Funcionario: " + f.nome + " |Palavra-Passe: " + f.codFuncionario + " |Data de Nascimento: " + f.dataNascimento + " |Tipo de Funcionario: " + f.tFuncionarios + "\n";
             }
             return result;
         }

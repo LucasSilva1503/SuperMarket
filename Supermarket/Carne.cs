@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,7 +16,7 @@ namespace Supermarket
 
         #region Construtor
 
-        public Carne(string marca, float preco, bool disponibilidade, int quantidade, bool vegan, TipoDeCarne tCarne) : base(marca, preco, disponibilidade, quantidade, vegan)
+        public Carne(string marca, float preco, bool disponibilidade, int quantidade, bool Vegan, TipoDeCarne tCarne) : base(marca, preco, disponibilidade, quantidade, Vegan)
         {
             
             this.Marca = marca;
@@ -31,4 +31,4 @@ namespace Supermarket
 
 
     }
-}
+}*/

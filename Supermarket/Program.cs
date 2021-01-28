@@ -14,7 +14,7 @@ namespace Supermarket
             int escolhaProdutos = -1;
 
             Funcionarios staff = new Funcionarios();
-            Stock stocks = new Stock();
+            //Stock stocks = new Stock();
 
             string nomeTemporario, codTemporario, nascTemp;
             int enumTp;
@@ -37,7 +37,7 @@ namespace Supermarket
                     //============================================================|Fazer Login|============================================
   
                     case 1: 
-                        TipoFuncionarios funcionarioSistema = staff.login(Console.ReadLine(), Console.ReadLine());
+                        TipoFuncionarios funcionarioSistema = staff.login(Console.ReadLine(), Console.ReadLine()); //Perguntar ao stor
 
                         if (funcionarioSistema == TipoFuncionarios.Indefenido)
                         {
@@ -67,15 +67,13 @@ namespace Supermarket
                                 {
                                     case 1://=========================|Ver todos os funcionarios|======================
                                         Console.WriteLine("|= Ver todos os Funcionarios =|");
-                                        Console.WriteLine("_______________________________");
                                         Console.WriteLine(staff.ToString());
 
                                         break;
                                     
                                     case 2://=========================|Apagar um funcionario|==========================
 
-                                        Console.WriteLine("|= Apagar Funcionario =|");
-                                        Console.WriteLine("________________________");
+                                        Console.WriteLine("|= Apagar Funcionario");
 
                                         Console.Write("Indique o funcionario que quer apagar: ");
                                         string funcionarioAApagar = Console.ReadLine();
@@ -98,7 +96,6 @@ namespace Supermarket
 
                                     case 3: //=========================|Efetuar Venda|==========================
                                         Console.WriteLine("|= Efetuar Venda =|");
-                                        Console.WriteLine("________________________");
 
 
                                         break;
@@ -116,7 +113,7 @@ namespace Supermarket
                             {
                                 Console.WriteLine("=========================================");
                                 Console.WriteLine("|Seja bem-vindo, fez login como Caixa   |");
-                                Console.WriteLine("| 1 - Menu Produtos                     |");
+                                Console.WriteLine("| 1 - Vender Produtos                   |");
                                 Console.WriteLine("| 2 - Ver todas as Faturas              |");
                                 Console.WriteLine("| 0 - Sair                              |");
                                 Console.WriteLine("|_______________________________________|");
@@ -148,17 +145,22 @@ namespace Supermarket
                         else if (funcionarioSistema == TipoFuncionarios.Repositor)
                         {
                             #region Repositor
+                            while (escolhaRepositor != 0)
+                            {
+                                Console.WriteLine("=========================================");
+                                Console.WriteLine("|Seja bem-vindo, fez login como Repositor   |");
+                                Console.WriteLine("| 1 - Vender Produtos                   |");
+                                Console.WriteLine("| 2 - Ver todas as Faturas              |");
+                                Console.WriteLine("| 0 - Sair                              |");
+                                Console.WriteLine("|_______________________________________|");
+                                Console.WriteLine("|Opcao: ");
 
+                            }
 
 
 
                             #endregion
                         }
-
-
-
-
-
                         else
                         {
                             Console.WriteLine("==========================================================");
@@ -175,7 +177,7 @@ namespace Supermarket
                         Console.Write("Introduzir Nome do Funcionario: ");
                         nomeTemporario = Console.ReadLine();
 
-                        Console.Write("Introduzir Codigo do Funcionario: ");
+                        Console.Write("Introduzir Palavra-Pass: ");
                         codTemporario = Console.ReadLine();
 
                         Console.Write("Introduzir Data de Nascimento do Funcionario: ");
