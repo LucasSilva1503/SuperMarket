@@ -1,19 +1,25 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
+
 namespace Supermarket
 {
+    [Serializable]
     class Stock
     {
         //lista de Produtos
-        public List<Stock> listaStock;
+        public List<Peixe> listaPeixes;
+        public List<Carne> listaCarne;
+        public List<Fruta> listaFruta;
 
         public Stock()
         {
-            listaStock = new List<Stock>();
+            listaPeixes= new List<Peixe>();
+            listaCarne = new List<Carne>();
+            listaFruta = new List<Fruta>();
         }
 
         //============================================================|Guardar Produto|================================================
@@ -38,14 +44,40 @@ namespace Supermarket
             FileStream filestream = File.Create(nomeFicheiro);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            foreach (Produto produtoASerLido in listaStock)
-            {
-                binaryFormatter.Serialize(filestream, produtoASerLido);
-            }
-            binaryFormatter.Serialize(filestream, produtoASerLido);
+            
+            binaryFormatter.Serialize(filestream, this);
 
             filestream.Close();
         }
         #endregion
+
+
+        static public Stock leituraProdutos()
+        {
+            string nomeFicheiro = "produtosGuardados.txt";
+            Stock s = new Stock();
+
+            if (File.Exists(nomeFicheiro))
+            {
+                FileStream fileStream = File.OpenRead(nomeFicheiro);
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+
+
+                s = binaryFormatter.Deserialize(fileStream) as Stock;
+
+                return s;
+
+                fileStream.Close();
+            }
+            else
+            {
+                Console.WriteLine("__________________________________________________________");
+                Console.WriteLine("|O ficheiro não foi encontrado, por favor crie um ficheiro|");
+                Console.WriteLine("|_________________________________________________________|");
+                return null;
+
+            }
+
+        }
     }
-}*/
+}

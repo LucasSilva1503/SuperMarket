@@ -14,8 +14,18 @@ namespace Supermarket
             int escolhaProdutos = -1;
 
             Funcionarios staff = new Funcionarios();
+            Stock s = Stock.leituraProdutos();
+            /*Peixe p = new Peixe("Iglo", 12f, true, 10, false, TipoDePeixe.Bacalhau);
+            Peixe p2 = new Peixe("Iglo", 10f, true, 10, false, TipoDePeixe.Robalo);
+            Carne c = new Carne("Iglo", 12f, true, 10, false, TipoDeCarne.Coelho);*/
+
+            /* s.listaPeixes.Add(p);
+             s.listaPeixes.Add(p2);
+             s.listaCarne.Add(c);
+             s.saveProduto();*/
             //Stock stocks = new Stock();
 
+            Console.WriteLine(s.listaPeixes[0].tPeixe);
             string nomeTemporario, codTemporario, nascTemp;
             int enumTp;
 
@@ -113,7 +123,7 @@ namespace Supermarket
                             {
                                 Console.WriteLine("=========================================");
                                 Console.WriteLine("|Seja bem-vindo, fez login como Caixa   |");
-                                Console.WriteLine("| 1 - Vender Produtos                   |");
+                                Console.WriteLine("| 1 - Vender Produtos e Criar Fatura    |");
                                 Console.WriteLine("| 2 - Ver todas as Faturas              |");
                                 Console.WriteLine("| 0 - Sair                              |");
                                 Console.WriteLine("|_______________________________________|");

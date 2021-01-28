@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Supermarket
 {
+    [Serializable]
     class Produto
     {
-        private string nome;
         private string marca;
         private float preco;
         private bool disponibilidade;
@@ -16,7 +16,6 @@ namespace Supermarket
        
         #region Get e Sets
 
-        public string Nome { get; set; }
         public string Marca { get; set; } 
         public float Preco { get; set; }
         public bool Disponibilidade { get; set; }
@@ -31,9 +30,8 @@ namespace Supermarket
 
         #region Construtor
 
-        public Produto(string nome, string marca, float preco, bool disponibilidade, int quantidade, bool vegan)
+        public Produto(string marca, float preco, bool disponibilidade, int quantidade, bool vegan)
         {
-            Nome = nome;
             Marca = marca;
             Preco = preco;
             Disponibilidade = disponibilidade;

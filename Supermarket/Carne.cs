@@ -1,15 +1,17 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Supermarket
 {
+    [Serializable]
     enum TipoDeCarne
     {
        Vaca,
        Coelho,
        Frango
     }
+    [Serializable]
     class Carne : Produto
     {
         public TipoDeCarne tCarne;
@@ -31,4 +33,4 @@ namespace Supermarket
 
 
     }
-}*/
+}

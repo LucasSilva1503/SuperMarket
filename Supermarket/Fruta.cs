@@ -1,9 +1,10 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Supermarket
 {
+    [Serializable]
     enum TipoDeFruta
     {
         Maca,
@@ -12,6 +13,7 @@ namespace Supermarket
         Ananas,
         Malancia
     }
+    [Serializable]
     class Fruta :Produto
     {
         public TipoDeFruta tFruta;
@@ -29,4 +31,4 @@ namespace Supermarket
         }
         #endregion
     }
-}*/
+}

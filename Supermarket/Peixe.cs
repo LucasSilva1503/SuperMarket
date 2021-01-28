@@ -1,9 +1,10 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Supermarket
 {
+    [Serializable]
     enum TipoDePeixe
     {
         Salmao,
@@ -12,8 +13,10 @@ namespace Supermarket
         Bacalhau
 
     }
+    [Serializable]
     class Peixe : Produto
     {
+
         public TipoDePeixe tPeixe;
 
         public Peixe(string marca, float preco, bool disponibilidade, int quantidade, bool vegan, TipoDePeixe tPeixe) : base(marca, preco, disponibilidade, quantidade, vegan)
@@ -24,8 +27,8 @@ namespace Supermarket
             this.Quantidade = quantidade;
             Vegan = false;
             this.tPeixe = tPeixe;
-            
+
         }
 
     }
-}*/
+}
