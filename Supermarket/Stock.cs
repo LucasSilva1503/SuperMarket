@@ -78,6 +78,27 @@ namespace Supermarket
 
             }
 
+
+        }
+
+        public bool apagarLista(string nome)
+        {
+            //POR FAVOR ME AJUDE
+            }
+
+            return false;
+
+        }
+
+        public override string ToString()
+        {
+            string result = "";
+            foreach(Stock st in Stock())
+            {
+                //string marca, float preco, bool disponibilidade, int quantidade, bool Vegan, TipoDeCarne tCarne
+                result += "|Marca: " + st.
+            }
+            return base.ToString();
         }
     }
 }
