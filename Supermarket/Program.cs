@@ -27,7 +27,10 @@ namespace Supermarket
 
             Console.WriteLine(s.listaPeixes[0].tPeixe);
             string nomeTemporario, codTemporario, nascTemp;
-            int enumTp;
+            string marcaTemporario, precoTemporario;
+            bool disponibilidadeTemporario, veganTemporario;
+            int quantidadeTemporario;
+            int enumTp, opcaoProduto, opcaoPeixe, opcaoCarne,opcaoFruta;
 
 
             while (escolha != 0)
@@ -109,6 +112,8 @@ namespace Supermarket
 
 
                                         break;
+
+
                                 }
 
                             }
@@ -158,15 +163,161 @@ namespace Supermarket
                             while (escolhaRepositor != 0)
                             {
                                 Console.WriteLine("=========================================");
-                                Console.WriteLine("|Seja bem-vindo, fez login como Repositor   |");
-                                Console.WriteLine("| 1 - Vender Produtos                   |");
-                                Console.WriteLine("| 2 - Ver todas as Faturas              |");
-                                Console.WriteLine("| 0 - Sair                              |");
-                                Console.WriteLine("|_______________________________________|");
+                                Console.WriteLine("|Seja bem-vindo, fez login como Repositor |");
+                                Console.WriteLine("| 1 - Ver todos Produtos                  |");
+                                Console.WriteLine("| 2 - Criar produto                       |");
+                                Console.WriteLine("| 3 - Apagar lista completa               |");
+                                Console.WriteLine("| 0 - Sair                                |");
+                                Console.WriteLine("|_________________________________________|");
                                 Console.WriteLine("|Opcao: ");
 
                             }
 
+                            switch (escolhaRepositor)
+                            {
+                                case 1://=========================|Ver todos os Produtos|======================
+
+                                    #region Ver todos os Produtos
+                                    // Console.WriteLine("|= Ver todos os Produtos =|");
+                                    //  Console.WriteLine(Stock.ToString());
+
+                                    break;
+                                #endregion
+
+                                case 2://=========================|Criar produto|==============================
+
+                                    #region Criar produto
+                                    Console.WriteLine("|= Criar Produto");
+
+
+                                    Console.Write("Indique o Marca: ");
+                                    marcaTemporario  = Console.ReadLine();
+
+                                    Console.Write("indique Preco: ");
+                                    precoTemporario = Console.ReadLine();
+
+                                    Console.Write("Existe Disponibilidade: true(sim) | false(nao)  ");
+                                    disponibilidadeTemporario = bool.Parse(Console.ReadLine());
+
+                                    Console.Write("e vegan: true(sim) | false(nao) ");
+                                    veganTemporario = bool.Parse(Console.ReadLine());
+
+                                    Console.WriteLine("Tipo de produto: 1- Peixe | 2- Carne | 3- Fruta ");
+                                    opcaoProduto = int.Parse(Console.ReadLine());
+
+                                    switch (opcaoProduto)
+                                    {
+
+                                        case 1:
+                                            Console.Write("Tipo de Peixe: 1-Salmao | 2-Robalo | 3- Sardinha | 4-Bacalhau ");
+                                            opcaoPeixe = int.Parse(Console.ReadLine());
+
+
+                                            switch (opcaoPeixe)
+                                            {
+
+                                                case 1:
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Salmao));
+                                                    break;
+
+                                                case 2:
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Robalo));
+                                                    break;
+
+                                                case 3:
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Sardinha));
+                                                    break;
+
+                                                case 4:
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Bacalhau));
+                                                    break;
+                                            }
+
+                                            break;
+
+                                            s.saveProduto();
+
+                                        case 2:
+                                             
+                                            Console.Write("Tipo de Carne: 1-Vaca | 2-Coelho | 3- Frango ");
+                                            opcaoCarne = int.Parse(Console.ReadLine());
+
+
+                                            switch (opcaoCarne)
+                                            {
+
+                                                case 1:
+                                                    s.listaPeixes.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeCarne.Vaca));
+                                                    break;
+
+                                                case 2:
+                                                    s.listaPeixes.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeCarne.Coelho));
+                                                    break;
+
+                                                case 3:
+                                                    s.listaPeixes.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeCarne.Frango));
+                                                    break;
+
+
+                                            }
+
+                                            break;
+
+                                            s.saveProduto();
+
+                                        case 3:
+
+                                            Console.Write("Tipo de Fruta: 1-Maca | 2-Banana | 3- Pessego | 4-Ananas | 5- Melancia");
+                                            opcaoFruta = int.Parse(Console.ReadLine());
+
+
+                                            switch (opcaoFruta)
+                                            {
+
+                                                case 1:
+                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Maca));
+                                                    break;
+
+                                                case 2:
+                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Banana));
+                                                    break;
+
+                                                case 3:
+                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Pessego));
+                                                    break;
+
+                                                case 4:
+                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Ananas));
+                                                    break;
+
+                                                case 5:
+                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Malancia));
+                                                    break;
+
+
+
+                                            }
+
+                                            s.saveProduto();
+                                            break;
+
+                                    }
+
+                                    break;
+                                #endregion
+
+                                case 3://===================|Apagar lista completa |===========================
+
+                                    #region Apagar lista completa 
+
+
+                                    #endregion
+
+
+
+
+                                    break;
+                            }
 
 
                             #endregion
