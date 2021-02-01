@@ -83,7 +83,7 @@ namespace Supermarket
 
         public bool apagarLista(string nome)
         {
-            //POR FAVOR ME AJUDE
+            
             }
 
             return false;
