@@ -19,6 +19,8 @@ namespace Supermarket
 
         public TipoDePeixe tPeixe;
 
+
+        #region Construtor
         public Peixe(string marca, float preco, bool disponibilidade, int quantidade, bool vegan, TipoDePeixe tPeixe) : base(marca, preco, disponibilidade, quantidade, vegan)
         {
             this.Marca = marca;
@@ -29,6 +31,20 @@ namespace Supermarket
             this.tPeixe = tPeixe;
 
         }
+        #endregion
+
+        #region ToString
+        public override string ToString()
+        {
+            string result = "";
+
+            result += "|Nome do Produto: " + this.tPeixe.ToString() + " |Preco: " + this.Preco.ToString() + "|Disponibilidade: " + this.Disponibilidade.ToString() + "|Quantidade: " + this.Quantidade.ToString() + "|Vegan: " + this.Vegan.ToString() + "\n";
+
+
+            return result;
+        }
+        #endregion
+       
 
     }
 }

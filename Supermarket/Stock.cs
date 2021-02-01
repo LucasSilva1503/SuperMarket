@@ -51,7 +51,7 @@ namespace Supermarket
         }
         #endregion
 
-
+        #region Leitura De Produto
         static public Stock leituraProdutos()
         {
             string nomeFicheiro = "produtosGuardados.txt";
@@ -80,25 +80,94 @@ namespace Supermarket
 
 
         }
+        #endregion
 
+        #region Apagar Elemento Lista
         public bool apagarLista(string nome)
         {
-            
+            int index = -1;
+            int tipo;
+            foreach (Carne i in this.listaCarne)
+            {
+                if (i.Marca==nome)
+                {
+                    index = this.listaCarne.IndexOf(i) ;
+                    
+                }
+
+
             }
 
+            if (index >=0)
+            {
+                this.listaCarne.RemoveAt(index);
+                return true;
+            }
+            
+
+
+            foreach (Peixe i in this.listaPeixes)
+            {
+                if (i.Marca == nome)
+                {
+                    index = this.listaPeixes.IndexOf(i);
+
+                }
+
+
+            }
+            if (index >= 0)
+            {
+                this.listaPeixes.RemoveAt(index);
+                return true;
+            }
+            index = -1;
+
+
+            foreach (Fruta i in this.listaFruta)
+            {
+                if (i.Marca == nome)
+                {
+                    index = this.listaFruta.IndexOf(i);
+
+                }
+
+
+            }
+            if (index >= 0)
+            {
+                this.listaFruta.RemoveAt(index);
+                return true;
+            }
+            index = -1;
             return false;
 
         }
+        #endregion
 
+        #region ToString
         public override string ToString()
         {
             string result = "";
-            foreach(Stock st in Stock())
+            foreach(Peixe px in this.listaPeixes)
             {
-                //string marca, float preco, bool disponibilidade, int quantidade, bool Vegan, TipoDeCarne tCarne
-                result += "|Marca: " + st.
+
+                result += px;
+            }
+
+            foreach (Carne br in this.listaCarne)
+            {
+
+                result += br;
+            }
+
+            foreach (Fruta lr in this.listaFruta)
+            {
+
+                result += lr;
             }
             return base.ToString();
-        }
+       }
+        #endregion
     }
 }

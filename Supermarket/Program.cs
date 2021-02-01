@@ -14,23 +14,15 @@ namespace Supermarket
             int escolhaProdutos = -1;
 
             Funcionarios staff = new Funcionarios();
-            Stock s = Stock.leituraProdutos();
-            /*Peixe p = new Peixe("Iglo", 12f, true, 10, false, TipoDePeixe.Bacalhau);
-            Peixe p2 = new Peixe("Iglo", 10f, true, 10, false, TipoDePeixe.Robalo);
-            Carne c = new Carne("Iglo", 12f, true, 10, false, TipoDeCarne.Coelho);*/
-
-            /* s.listaPeixes.Add(p);
-             s.listaPeixes.Add(p2);
-             s.listaCarne.Add(c);
-             s.saveProduto();*/
-            //Stock stocks = new Stock();
-
-            Console.WriteLine(s.listaPeixes[0].tPeixe);
+            //Stock s = Stock.leituraProdutos();
+            Stock s = new Stock();
+            
             string nomeTemporario, codTemporario, nascTemp;
-            string marcaTemporario, precoTemporario;
+            string marcaTemporario ;
             bool disponibilidadeTemporario, veganTemporario;
             int quantidadeTemporario;
             int enumTp, opcaoProduto, opcaoPeixe, opcaoCarne,opcaoFruta;
+            float precoTemporario;
 
 
             while (escolha != 0)
@@ -79,13 +71,17 @@ namespace Supermarket
                                 switch (escolhaGerente)
                                 {
                                     case 1://=========================|Ver todos os funcionarios|======================
+
+                                        #region Todos os Funcinarios
                                         Console.WriteLine("|= Ver todos os Funcionarios =|");
                                         Console.WriteLine(staff.ToString());
 
                                         break;
-                                    
+                                    #endregion
+
                                     case 2://=========================|Apagar um funcionario|==========================
 
+                                        #region Apagar Funcionario
                                         Console.WriteLine("|= Apagar Funcionario");
 
                                         Console.Write("Indique o funcionario que quer apagar: ");
@@ -106,13 +102,15 @@ namespace Supermarket
                                         }
 
                                         break;
+                                    #endregion
 
                                     case 3: //=========================|Efetuar Venda|==========================
+
+                                        #region Efectuar Venda
                                         Console.WriteLine("|= Efetuar Venda =|");
 
-
                                         break;
-
+                                        #endregion
 
                                 }
 
@@ -120,7 +118,6 @@ namespace Supermarket
                             #endregion
                         }
                         
-
                         else if (funcionarioSistema == TipoFuncionarios.Caixa)
                         {//===========================|Caixa|===========================
                             #region Caixa
@@ -157,10 +154,11 @@ namespace Supermarket
                             }
                             #endregion
                         }
+
                         else if (funcionarioSistema == TipoFuncionarios.Repositor)
-                        {
+                        {//===========================|Repositor|===========================
                             #region Repositor
-                            while (escolhaRepositor != 0)
+                            if (escolhaRepositor != 0)
                             {
                                 Console.WriteLine("=========================================");
                                 Console.WriteLine("|Seja bem-vindo, fez login como Repositor |");
@@ -172,14 +170,14 @@ namespace Supermarket
                                 Console.WriteLine("|Opcao: ");
 
                             }
-
+                            escolhaRepositor = int.Parse(Console.ReadLine()); 
                             switch (escolhaRepositor)
                             {
                                 case 1://=========================|Ver todos os Produtos|======================
 
                                     #region Ver todos os Produtos
-                                    // Console.WriteLine("|= Ver todos os Produtos =|");
-                                    //  Console.WriteLine(Stock.ToString());
+                                     Console.WriteLine("|= Ver todos os Produtos =|");
+                                     Console.WriteLine(s.ToString());
 
                                     break;
                                 #endregion
@@ -194,21 +192,27 @@ namespace Supermarket
                                     marcaTemporario  = Console.ReadLine();
 
                                     Console.Write("indique Preco: ");
-                                    precoTemporario = Console.ReadLine();
+                                    while (!float.TryParse(Console.ReadLine(),out precoTemporario));
+                                    
+
+                                    Console.Write("indique Quantidade: ");
+                                    while(!int.TryParse(Console.ReadLine(), out quantidadeTemporario));
 
                                     Console.Write("Existe Disponibilidade: true(sim) | false(nao)  ");
-                                    disponibilidadeTemporario = bool.Parse(Console.ReadLine());
+                                    while(!bool.TryParse(Console.ReadLine(), out disponibilidadeTemporario));
 
                                     Console.Write("e vegan: true(sim) | false(nao) ");
-                                    veganTemporario = bool.Parse(Console.ReadLine());
+                                    while(!bool.TryParse(Console.ReadLine(), out veganTemporario)) ; ;
 
                                     Console.WriteLine("Tipo de produto: 1- Peixe | 2- Carne | 3- Fruta ");
-                                    opcaoProduto = int.Parse(Console.ReadLine());
+                                    while(!int.TryParse(Console.ReadLine(), out opcaoProduto)) ;
+
 
                                     switch (opcaoProduto)
                                     {
 
                                         case 1:
+                                            #region Peixe
                                             Console.Write("Tipo de Peixe: 1-Salmao | 2-Robalo | 3- Sardinha | 4-Bacalhau ");
                                             opcaoPeixe = int.Parse(Console.ReadLine());
 
@@ -217,45 +221,45 @@ namespace Supermarket
                                             {
 
                                                 case 1:
-                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Salmao));
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDePeixe.Salmao));
                                                     break;
 
                                                 case 2:
-                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Robalo));
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDePeixe.Robalo));
                                                     break;
 
                                                 case 3:
-                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Sardinha));
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDePeixe.Sardinha));
                                                     break;
 
                                                 case 4:
-                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDePeixe.Bacalhau));
+                                                    s.listaPeixes.Add(new Peixe(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDePeixe.Bacalhau));
                                                     break;
                                             }
 
                                             break;
 
                                             s.saveProduto();
+                                        #endregion
 
                                         case 2:
-                                             
+                                            #region Carne
                                             Console.Write("Tipo de Carne: 1-Vaca | 2-Coelho | 3- Frango ");
                                             opcaoCarne = int.Parse(Console.ReadLine());
-
 
                                             switch (opcaoCarne)
                                             {
 
                                                 case 1:
-                                                    s.listaPeixes.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeCarne.Vaca));
+                                                    s.listaCarne.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDeCarne.Vaca));
                                                     break;
 
                                                 case 2:
-                                                    s.listaPeixes.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeCarne.Coelho));
+                                                    s.listaCarne.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDeCarne.Coelho));
                                                     break;
 
                                                 case 3:
-                                                    s.listaPeixes.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeCarne.Frango));
+                                                    s.listaCarne.Add(new Carne(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDeCarne.Frango));
                                                     break;
 
 
@@ -264,34 +268,36 @@ namespace Supermarket
                                             break;
 
                                             s.saveProduto();
+                                        #endregion
 
                                         case 3:
+                                            #region Opcao Fruta
 
                                             Console.Write("Tipo de Fruta: 1-Maca | 2-Banana | 3- Pessego | 4-Ananas | 5- Melancia");
                                             opcaoFruta = int.Parse(Console.ReadLine());
 
-
+                                            
                                             switch (opcaoFruta)
                                             {
 
                                                 case 1:
-                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Maca));
+                                                    s.listaFruta.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario,quantidadeTemporario, veganTemporario, TipoDeFruta.Maca));
                                                     break;
 
                                                 case 2:
-                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Banana));
+                                                    s.listaFruta.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDeFruta.Banana));
                                                     break;
 
                                                 case 3:
-                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Pessego));
+                                                    s.listaFruta.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDeFruta.Pessego));
                                                     break;
 
                                                 case 4:
-                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Ananas));
+                                                    s.listaFruta.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDeFruta.Ananas));
                                                     break;
 
                                                 case 5:
-                                                    s.listaPeixes.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, veganTemporario, TipoDeFruta.Malancia));
+                                                    s.listaFruta.Add(new Fruta(marcaTemporario, precoTemporario, disponibilidadeTemporario, quantidadeTemporario, veganTemporario, TipoDeFruta.Malancia));
                                                     break;
 
 
@@ -300,7 +306,7 @@ namespace Supermarket
 
                                             s.saveProduto();
                                             break;
-
+                                            #endregion
                                     }
 
                                     break;
@@ -310,30 +316,34 @@ namespace Supermarket
 
                                     #region Apagar lista completa 
 
-
-                                    #endregion
-
+                                    Console.Write("Indique o produto a apagar: ");
+                                    string produtoAApagar = Console.ReadLine();
+                                    bool resultado = s.apagarLista(produtoAApagar);
 
 
 
                                     break;
+
+                                    #endregion
                             }
 
-
-                            #endregion
                         }
+
                         else
                         {
+                            #region Erro
                             Console.WriteLine("==========================================================");
                             Console.WriteLine("|Algo inesperado aconteceu, por favor contacte o suporte.|");
                             Console.WriteLine("|________________________________________________________|");
+                            #endregion
                         }
 
                         break;
-
+                    #endregion
 
                     //==============================================================|Criar Novo Funcionario|===============================
 
+                    #region Criar Novo Funcionario
                     case 2:
                         Console.Write("Introduzir Nome do Funcionario: ");
                         nomeTemporario = Console.ReadLine();
@@ -361,13 +371,17 @@ namespace Supermarket
                                 break;
                         }
                         staff.saveFuncionario();
-
+                        
                         break;
+                    #endregion
 
                     //===================================================|Função Secreta|==================================================
+                    #region Top Secret
+
                     case 15: //Opcao "secreta" para ver lista de Funcionarios sem ser gerente, shhhh
                         Console.WriteLine(staff.ToString());
                         break;
+                        #endregion
                 }
             }
         }

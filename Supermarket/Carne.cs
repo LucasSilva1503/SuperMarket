@@ -31,6 +31,17 @@ namespace Supermarket
 
         #endregion
 
+        #region ToString
+        public override string ToString()
+        {
+            string result = "";
+
+            result += "|Nome do Produto: " + this.tCarne.ToString() + " |Preco: " + this.Preco.ToString() + "|Disponibilidade: " + this.Disponibilidade.ToString() + "|Quantidade: " + this.Quantidade.ToString() + "|Vegan: " + this.Vegan.ToString() + "\n";
+
+
+            return result;
+        }
+        #endregion
 
     }
 }
