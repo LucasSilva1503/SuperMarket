@@ -126,10 +126,10 @@ namespace Supermarket
                                 Console.WriteLine("=========================================");
                                 Console.WriteLine("|Seja bem-vindo, fez login como Caixa   |");
                                 Console.WriteLine("| 1 - Vender Produtos e Criar Fatura    |");
-                                Console.WriteLine("| 2 - Ver todas as Faturas              |");
                                 Console.WriteLine("| 0 - Sair                              |");
                                 Console.WriteLine("|_______________________________________|");
                                 Console.WriteLine("|Opcao: ");
+                                
 
                                 escolhaCaixa = int.Parse(Console.ReadLine());
 
@@ -145,10 +145,7 @@ namespace Supermarket
 
                                         break;
 
-                                    case 2://=========================|Ver Faturas|======================
-
-
-                                        break;
+                                    
                                 }
 
                             }
